@@ -1,0 +1,10 @@
+# Use an official Debian base image
+FROM debian:latest
+
+# Install fortune-mod and cowsay
+RUN apt-get update && \
+    apt-get install -y fortune cowsay && \
+    apt-get clean
+
+# Set the command to run fortune with cowsay when the container starts
+CMD /usr/games/fortune | /usr/games/cowsay
